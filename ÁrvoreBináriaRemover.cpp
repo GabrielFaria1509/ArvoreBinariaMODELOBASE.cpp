@@ -42,7 +42,7 @@ bool remove(node*curr,int info){
             }else if(curr ->right == NULL){
                 curr = curr ->left;
             }else{
-                node* aux= repoint_less(curr ->right)
+                node* aux= repoint_less(curr ->right);
                 curr ->info = aux ->info;
                 
             }
@@ -103,6 +103,17 @@ int main(){
 	} else {
 		cout << result->info << endl;
 	}
+
+    if(remove(root, 11)){
+        cout << 11 << " removido" << endl;
+    }else{
+        cout << 11 << " nao removido" << endl;
+    }
+    if(remove(root, 6)){
+        cout << 6 << " removido" << endl;
+    }else{
+        cout << 6 << " nao removido" << endl;
+    }
 	
 	return 0;
 }
