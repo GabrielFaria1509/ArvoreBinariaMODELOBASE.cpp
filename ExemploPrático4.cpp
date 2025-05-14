@@ -96,7 +96,7 @@ int main(){
     bool sair_do_programa = false;
     string nome_busca;
     treenodeptr tree = NULL, tree_busca = NULL;
-    dados rocha_auxiliar;
+    dados rocha_auxiliar;        //ou dados rochaauxiliar ou rochaAuxiliar
 
     do {
         cin >> opcao_menu;
