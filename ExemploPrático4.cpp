@@ -96,7 +96,7 @@ int main(){
     bool sair_do_programa = false;
     string nome_busca;
     treenodeptr tree = NULL, tree_busca = NULL;
-    dados rocha_auxiliar;        //ou dados rochaauxiliar ou rochaAuxiliar
+    dados rocha_auxiliar;        //ou dados rochaauxiliar ou rochaAuxiliar ou dados rochaux
 
     do {
         cin >> opcao_menu;
@@ -106,9 +106,9 @@ int main(){
             break;
 
         case 1:
-            getline(cin >> ws, rocha_auxiliar.nome);
+            getline(cin >> ws, rocha_auxiliar.nome);     
             getline(cin >> ws, rocha_auxiliar.tipo);
-            tree_insert(tree, rocha_auxiliar);
+            tree_insert(tree, rocha_auxiliar);        //devo passar como tree_insert(tree, rochaauxiliar); e em remove também
             break;
 
         case 2:
@@ -142,3 +142,58 @@ int main(){
 
     return 0;
 }
+//int main alternativa 
+/*
+int main() {
+    int opcao_menu;
+    bool sair_do_programa = false;
+    string nome_busca;
+    treenodeptr tree = NULL, tree_busca = NULL;
+
+    do {
+        cin >> opcao_menu;
+        switch (opcao_menu) {
+        case 0:
+            sair_do_programa = true;
+            break;
+
+        case 1:
+            dados rocha;  // Declaração diretamente na main
+            getline(cin >> ws, rocha.nome);  // Preenche rocha.nome
+            getline(cin >> ws, rocha.tipo);  // Preenche rocha.tipo
+            tree_insert(tree, rocha);  // Insere diretamente
+            break;
+
+        case 2:
+            getline(cin >> ws, nome_busca);
+            tree_busca = search_tree(tree, nome_busca);
+            if(tree_busca != NULL){
+                cout << "Nome: " << tree_busca->rocha.nome << endl;
+                cout << "Tipo: " << tree_busca->rocha.tipo  << endl;
+            } else {
+                cout << "Rocha nao encontrada" << endl;
+            }
+            break;
+
+        case 3:
+            dados rocha_remover;  // Declaração diretamente na main
+            getline(cin >> ws, rocha_remover.nome);
+            getline(cin >> ws, rocha_remover.tipo);
+            if(remove(tree, rocha_remover)){
+                cout << "Rocha removida com sucesso" << endl;
+            } else {
+                cout << "Rocha nao encontrada para remocao" << endl;
+            }
+            break;
+
+        default:
+            cout << "Operacao invalida" << endl;
+            break;
+        }
+    } while (!sair_do_programa);
+
+    destroy_tree(tree);
+    return 0;
+}
+*/
+
